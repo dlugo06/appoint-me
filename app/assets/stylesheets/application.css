@@ -7,7 +7,7 @@
    list-style: none;
    margin: 0 0 2em;
    display: inline;
-   font-family: sans-serif;
+   font-family: georgia;
    font-size: 0.85em;
  }
 
@@ -27,10 +27,14 @@ body {
    color: white;
  }
 
+ ul.menubar li.nav {
+   float: left;
+ }
+
  ul.menubar a {
    color: white;
    text-decoration: none;
    padding: 0 3px;
    border: 1px white solid;
-   border-radius: 3px
+   border-radius: 3px;
  }
