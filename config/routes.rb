@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
+  get '/home' => 'welcome#home', as: :home
+
   devise_for :users
   resources :appointments
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  root 'appointments#index'
+  root 'welcome#home'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
