@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get '/home' => 'welcome#home', as: :home
-
+  # delete '/users/sign_out', to: 'devise/sessions#destroy'
   devise_for :users
   resources :appointments
   # The priority is based upon order of creation: first created -> highest priority.

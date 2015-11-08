@@ -8,7 +8,12 @@
 </head>
 <body>
   <p class="alert"><%= alert %></p>
-
+  <div class="menubar">
+    <ul class="menubar">
+      <%= render 'devise/menu/registration_items' %>
+      <%= render 'devise/menu/login_items' %>
+    </ul>
+  </div>
   <%= yield %>
 
 </body>
