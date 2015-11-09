@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   root 'welcome#home'
-  get '/notifications-global' => 'notifications#index', as: :index
-
+  get '/notifications-global' => 'notifications#index', as: :all_notifications
+  get '/appointment-notifications/:id' => 'appointments#notifications', as: :appointment_notifications
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-  before_action :set_appointment, only: [:show, :edit, :update, :destroy]
+  before_action :set_appointment, only: [:show, :edit, :update, :destroy, :notifications]
   # before_action :set_user
   before_action :authenticate_user!
 
@@ -55,6 +55,10 @@ class AppointmentsController < ApplicationController
         format.json { render json: @appointment.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  def notifications
+    @notifications = @appointment.notifications
   end
 
   # DELETE /appointments/1

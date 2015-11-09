@@ -7,8 +7,8 @@ class NotificationsController < ApplicationController
     if current_user.admin?
       @notifications = Notification.all
     else
-      redirect_to appointments_path
-      # @notifications = Notification.where(user_id: current_user.id)
+      # redirect_to appointments_path
+      @notifications = current_user.notifications
     end
   end
 
@@ -61,7 +61,7 @@ class NotificationsController < ApplicationController
   def destroy
     @notification.destroy
     respond_to do |format|
-      format.html { redirect_to notifications_url, notice: 'Notification was successfully destroyed.' }
+      format.html { redirect_to appointment_notifications_path(@notification.appointments), notice: 'Notification was successfully destroyed.' } #this is my attempt at trying to redirect user to the appointments notifications path after detroying a notification. not working because cannot find notification. 'set_notification' method below
       format.json { head :no_content }
     end
   end

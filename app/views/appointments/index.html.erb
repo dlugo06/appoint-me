@@ -18,12 +18,14 @@ Appointments</h1>
       <% end %>
       <th>Start time</th>
       <th>End time</th>
+      <!-- <th>Notifications</th> -->
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @appointments.each do |appointment| %>
+    <%# raise %>
       <tr>
         <td><%= appointment.event %></td>
         <td><%= appointment.location %></td>
@@ -32,6 +34,7 @@ Appointments</h1>
         <% end %>
         <td><%= appointment.start_time %></td>
         <td><%= appointment.end_time %></td>
+        <td><%= link_to 'Notifications', appointment_notifications_path(appointment) %></td>
         <td><%= link_to 'Show', appointment %></td>
         <td><%= link_to 'Edit', edit_appointment_path(appointment) %></td>
         <td><%= link_to 'Destroy', appointment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
