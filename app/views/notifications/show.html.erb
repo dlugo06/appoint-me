@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @notification.time %>
+</p>
+
+<p>
+  <strong>Notification Type:</strong>
+  <%= @notification.notification_type %>
+</p>
+
+<p>
+  <strong>Appointment:</strong>
+  <%= @notification.appointment %>
+</p>
+
+<%= link_to 'Edit', edit_notification_path(@notification) %> |
+<%= link_to 'Back', notifications_path %>

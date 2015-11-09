@@ -1,4 +1,3 @@
-
 # encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
@@ -12,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151108180106) do
+ActiveRecord::Schema.define(version: 20151108223024) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +27,18 @@ ActiveRecord::Schema.define(version: 20151108180106) do
   end
 
   add_index "appointments", ["user_id"], name: "index_appointments_on_user_id", using: :btree
+
+  create_table "notifications", force: :cascade do |t|
+    t.datetime "time"
+    t.string   "notification_type"
+    t.integer  "user_id"
+    t.integer  "appointment_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "notifications", ["appointment_id"], name: "index_notifications_on_appointment_id", using: :btree
+  add_index "notifications", ["user_id"], name: "index_notifications_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "",    null: false
@@ -49,4 +60,6 @@ ActiveRecord::Schema.define(version: 20151108180106) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "appointments", "users"
+  add_foreign_key "notifications", "appointments"
+  add_foreign_key "notifications", "users"
 end
