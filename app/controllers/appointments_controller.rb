@@ -1,11 +1,16 @@
 class AppointmentsController < ApplicationController
   before_action :set_appointment, only: [:show, :edit, :update, :destroy]
+  # before_action :set_user
   before_action :authenticate_user!
 
   # GET /appointments
   # GET /appointments.json
   def index
-    @appointments = Appointment.all
+    if current_user.admin?
+      @appointments = Appointment.all
+    else
+      @appointments = Appointment.where(user_id: current_user.id)
+    end
   end
 
   # GET /appointments/1
@@ -68,6 +73,10 @@ class AppointmentsController < ApplicationController
     def set_appointment
       @appointment = Appointment.find(params[:id])
     end
+
+    # def set_user
+    #   @user = current_user
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
