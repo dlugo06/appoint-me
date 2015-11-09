@@ -4,7 +4,12 @@ class NotificationsController < ApplicationController
   # GET /notifications
   # GET /notifications.json
   def index
-    @notifications = Notification.all
+    if current_user.admin?
+      @notifications = Notification.all
+    else
+      redirect_to appointments_path
+      # @notifications = Notification.where(user_id: current_user.id)
+    end
   end
 
   # GET /notifications/1

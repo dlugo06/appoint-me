@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :notifications
+  resources :notifications, except: :index
   get '/home' => 'welcome#home', as: :home
   # delete '/users/sign_out', to: 'devise/sessions#destroy'
   devise_for :users
@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   root 'welcome#home'
+  get '/notifications-global' => 'notifications#index', as: :index
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
