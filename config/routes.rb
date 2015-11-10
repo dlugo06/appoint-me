@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root 'welcome#home'
   get '/notifications-global' => 'notifications#index', as: :all_notifications
   get '/appointment-notifications/:id' => 'appointments#notifications', as: :appointment_notifications
+  get '/notifications/new/:id' => 'notifications#new', as: :new_appointment_notification
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

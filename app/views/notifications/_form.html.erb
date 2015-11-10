@@ -20,14 +20,13 @@
     <%= f.select :notification_type, [['Email', 'email'], ['Text', 'text']] %>
   </div>
   <div class="field">
-    <%= f.label :appointment_id %><br>
-    <%= f.text_field :appointment_id %>
+    <%= f.hidden_field :appointment_id, value: @appointment.id %>
   </div>
   <div class="field">
-    <%# f.label :appointment_id %><br>
     <%= f.hidden_field :user_id, value: current_user.id %>
   </div>
   <div class="actions">
+    <br>
     <%= f.submit %>
   </div>
 <% end %>

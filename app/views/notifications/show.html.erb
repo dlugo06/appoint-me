@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <h2>Notification: <%= @notification.appointment.event %></h2>
+</p>
+
+<p>
   <strong>Time:</strong>
   <%= @notification.time %>
 </p>
@@ -8,11 +12,6 @@
 <p>
   <strong>Notification Type:</strong>
   <%= @notification.notification_type %>
-</p>
-
-<p>
-  <strong>Appointment:</strong>
-  <%= @notification.appointment %>
 </p>
 
 <%= link_to 'Edit', edit_notification_path(@notification) %> |

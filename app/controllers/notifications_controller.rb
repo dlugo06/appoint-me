@@ -1,5 +1,6 @@
 class NotificationsController < ApplicationController
   before_action :set_notification, only: [:show, :edit, :update, :destroy]
+  # before_action :set_appointment, only: [:new, :create]
 
   # GET /notifications
   # GET /notifications.json
@@ -19,6 +20,7 @@ class NotificationsController < ApplicationController
 
   # GET /notifications/new
   def new
+    @appointment = Appointment.find(params[:id])
     @notification = Notification.new
   end
 
@@ -68,6 +70,10 @@ class NotificationsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    # def set_appointment
+    #
+    # end
+
     def set_notification
       @notification = Notification.find(params[:id])
     end
