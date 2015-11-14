@@ -8,11 +8,12 @@
   <% end %>
 Appointments</h1>
 
-<table>
+<table class="indextable">
   <thead>
     <tr>
       <th>Event</th>
       <th>Location</th>
+      <th>Address</th>
       <% if current_user.admin? %>
         <th>User</th>
       <% end %>
@@ -29,6 +30,7 @@ Appointments</h1>
       <tr>
         <td><%= appointment.event %></td>
         <td><%= appointment.location %></td>
+        <td><%= appointment.address %></td>
         <% if current_user.admin? %>
           <td><%= appointment.find_user_from_appointment(appointment).email %></td>
         <% end %>

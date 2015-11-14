@@ -84,6 +84,6 @@ class AppointmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
-      params.require(:appointment).permit(:event, :location, :start_time, :end_time, :user_id)
+      params.require(:appointment).permit(:event, :location, :start_time, :end_time, :user_id, :address)
     end
 end
