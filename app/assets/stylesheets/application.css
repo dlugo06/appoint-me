@@ -38,3 +38,20 @@ body {
    border: 1px white solid;
    border-radius: 3px;
  }
+
+ h1.hometitle {
+   text-align: center;
+   /*background-color: blue;*/
+ }
+
+ .homepage a {
+   color: black;
+   text-decoration: none;
+   padding: 0 3px;
+   border: 1px black solid;
+   border-radius: 3px;
+ }
+
+ div.homepage {
+   text-align: center;
+ }
