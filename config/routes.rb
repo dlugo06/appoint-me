@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :notifications, except: :index
   get '/home' => 'welcome#home', as: :home
   # delete '/users/sign_out', to: 'devise/sessions#destroy'
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   resources :appointments
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
