@@ -1,5 +1,7 @@
 == README
 
+Tracking issues on waffle: https://waffle.io/dlugo06/appoint-me
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
