@@ -1,7 +1,22 @@
 class NotificationsController < ApplicationController
-  before_action :set_notification, only: [:show, :edit, :update, :destroy]
+  before_action :set_notification, only: [:show, :edit, :update, :destroy, :notify]
+  skip_before_action :verify_authenticity_token, only: [:notify]
   # before_action :set_appointment, only: [:new, :create]
 
+
+  def notify
+    client = Twilio::REST::Client.new Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_auth_token
+    def pm_or_am
+      if @notification.time.hour < 12
+        return "AM"
+      else
+        return "PM"
+      end
+    end
+    message_content = "Your notification will happen on #{@notification.time.month}/#{@notification.time.day}/#{@notification.time.year} at #{@notification.time.hour}:#{@notification.time.min} #{pm_or_am}"
+    client.messages.create from: '7603137138', to: '6195722049', body: message_content
+    redirect_to appointment_notifications_path(@notification.appointment), notice: 'Text was successfully sent.'
+  end
   # GET /notifications
   # GET /notifications.json
   def index
@@ -70,9 +85,6 @@ class NotificationsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    # def set_appointment
-    #
-    # end
 
     def set_notification
       @notification = Notification.find(params[:id])
