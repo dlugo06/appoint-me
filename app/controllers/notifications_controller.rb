@@ -13,8 +13,8 @@ class NotificationsController < ApplicationController
         return "PM"
       end
     end
-    message_content = "Your notification will happen on #{@notification.time.month}/#{@notification.time.day}/#{@notification.time.year} at #{@notification.time.hour}:#{@notification.time.min} #{pm_or_am}"
-    client.messages.create from: '7603137138', to: '6195722049', body: message_content
+    message_content = "Your notification will happen on #{@notification.time.month}/#{@notification.time.day}/#{@notification.time.year} at #{@notification.time.hour}:#{@notification.time.min} #{pm_or_am}."
+    client.messages.create from: '7603137138', to: current_user.phone_number, body: message_content
     redirect_to appointment_notifications_path(@notification.appointment), notice: 'Text was successfully sent.'
   end
   # GET /notifications
