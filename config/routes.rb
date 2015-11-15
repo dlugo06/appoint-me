@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   # delete '/users/sign_out', to: 'devise/sessions#destroy'
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :appointments
+  post 'twilio/voice' => 'twilio#voice'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   root 'welcome#home'

@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 gem 'devise'
 gem 'better_errors'
-
+gem 'twilio-ruby'
 gem 'pg'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
