@@ -13,9 +13,11 @@
 
   <div class="field">
     <%= f.label :time %><br>
-    <%= f.datetime_select :time %>
+    <%= f.number_field :number %>
+    <%= f.select :multiplier, [['Select', 'none'], ['Minutes', 'minutes'], ['Hours', 'hours'], ['Days', 'days'], ['Weeks', 'weeks']] %> Before
   </div>
   <div class="field">
+    <br>
     <%= f.label :notification_type %><br>
     <%= f.select :notification_type, [['Email', 'email'], ['Text', 'text']] %>
   </div>
