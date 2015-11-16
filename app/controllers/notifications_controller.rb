@@ -6,14 +6,7 @@ class NotificationsController < ApplicationController
 
   def notify
     client = Twilio::REST::Client.new Rails.application.secrets.twilio_account_sid, Rails.application.secrets.twilio_auth_token
-    def pm_or_am
-      if @notification.time.hour < 12
-        return "AM"
-      else
-        return "PM"
-      end
-    end
-    message_content = "Your notification will happen on #{@notification.time.month}/#{@notification.time.day}/#{@notification.time.year} at #{@notification.time.hour}:#{@notification.time.min} #{pm_or_am}."
+    message_content = "Your notification will happen on #{@notification.formatted_date}"
     client.messages.create from: '7603137138', to: current_user.phone_number, body: message_content
     redirect_to appointment_notifications_path(@notification.appointment), notice: 'Text was successfully sent.'
   end
